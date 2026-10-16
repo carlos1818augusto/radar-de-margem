@@ -12,6 +12,16 @@ from statistics import median
 
 ROOT = Path(__file__).resolve().parent
 
+def stable_numbers(value):
+    """Quantize serialized floats to avoid irrelevant last-bit OS math differences."""
+    if isinstance(value, float):
+        return round(value, 6)
+    if isinstance(value, list):
+        return [stable_numbers(item) for item in value]
+    if isinstance(value, dict):
+        return {key: stable_numbers(item) for key, item in value.items()}
+    return value
+
 def generate(seed=42, days=180):
     rng = random.Random(seed)
     rows, truth = [], []
@@ -109,15 +119,17 @@ def run(output):
     canonical = json.dumps(raw, sort_keys=True, ensure_ascii=False).encode()
     report = dict(seed=42, data_sha256=hashlib.sha256(canonical).hexdigest(), **metrics)
     for name, data in [('transactions',raw), ('ground_truth',truth), ('alerts',alerts)]:
+        data = stable_numbers(data)
         with (output / (name+'.csv')).open('w', newline='', encoding='utf-8') as f:
             writer = csv.DictWriter(f, fieldnames=list(data[0]), lineterminator='\n'); writer.writeheader(); writer.writerows(data)
     (output/'report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     quality = dict(status='aprovado', rows=len(raw), unique_keys=len({r['id'] for r in raw}), categories=3, days=180, missing_cells=sum(v is None for r in raw for v in r.values()), checks=['Base não vazia','Chave única','Categoria/data única','Tipos inteiros','Domínio monetário e falhas','Datas ISO válidas'], data_sha256=report['data_sha256'])
     for name, data in [('backtest',predictions),('forecast_metrics',scores),('future_forecast',future)]:
+        data = stable_numbers(data)
         with (output/(name+'.csv')).open('w',newline='',encoding='utf-8') as f:
             writer=csv.DictWriter(f,fieldnames=list(data[0]),lineterminator='\n');writer.writeheader();writer.writerows(data)
     (output/'quality.json').write_text(json.dumps(quality,indent=2,ensure_ascii=False),encoding='utf-8')
-    payload = json.dumps(dict(rows=rows, raw=raw, alerts=alerts, report=report, quality=quality, forecasts=predictions, scores=scores, future=future), ensure_ascii=False).replace('<', '\\u003c')
+    payload = json.dumps(stable_numbers(dict(rows=rows, raw=raw, alerts=alerts, report=report, quality=quality, forecasts=predictions, scores=scores, future=future)), ensure_ascii=False).replace('<', '\\u003c')
     template = (ROOT/'dashboard.html').read_text(encoding='utf-8')
     scripts = '<script>'+ (ROOT/'scenario.js').read_text(encoding='utf-8') + '</script><script>'+ (ROOT/'advanced.js').read_text(encoding='utf-8') + '</script>'
     template = template.replace('</html>', scripts+'</html>')
