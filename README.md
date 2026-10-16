@@ -7,10 +7,8 @@ Plataforma demonstrativa de inteligência operacional para uma **fintech fictíc
 ## Explore a demonstração
 
 - [Painel público](https://carlos1818augusto.github.io/radar-de-margem/) ou `demo/index.html` offline. Use Operação, Previsão, Simulador e Qualidade no menu.
-- [Vídeo demonstrativo](docs/demo-plataforma.mp4) e [PDF explicativo](docs/radar-margem-carrossel.pdf).
+- [PDF explicativo](docs/radar-margem-carrossel.pdf). O vídeo demonstrativo depende da liberação de acesso do navegador ao painel publicado.
 - Para apresentar a clientes, use a base fictícia. [Checklist para eventual homologação](docs/HOMOLOGACAO.md).
-
-![Captura real do painel financeiro](docs/painel.png)
 
 ## Reproduza
 
