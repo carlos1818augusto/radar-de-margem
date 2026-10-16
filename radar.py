@@ -101,7 +101,7 @@ def run(output):
     report = dict(seed=42, data_sha256=hashlib.sha256(canonical).hexdigest(), **metrics)
     for name, data in [('sales',raw), ('ground_truth',truth), ('alerts',alerts)]:
         with (output / (name+'.csv')).open('w', newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=list(data[0])); writer.writeheader(); writer.writerows(data)
+            writer = csv.DictWriter(f, fieldnames=list(data[0]), lineterminator='\n'); writer.writeheader(); writer.writerows(data)
     (output/'report.json').write_text(json.dumps(report, indent=2), encoding='utf-8')
     payload = json.dumps(dict(rows=rows, alerts=alerts, report=report), ensure_ascii=False).replace('<', '\\u003c')
     template = (ROOT/'dashboard.html').read_text(encoding='utf-8')
