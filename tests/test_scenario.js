@@ -1,0 +1,10 @@
+const assert=require('node:assert/strict');
+const scenario=require('../scenario.js');
+assert.deepEqual(scenario(1,.5,10,100),{revenue:90,cost:50,profit:40,margin:40/90,breakEven:.5/.9});
+assert.equal(scenario(100,120,0,1).profit,-20);
+assert.equal(scenario(100,50,100,1).margin,null);
+assert.equal(scenario(100,50,100,1).breakEven,null);
+assert.equal(scenario(100,50,0,0).revenue,0);
+assert.throws(()=>scenario(100,50,101,1));
+assert.throws(()=>scenario(NaN,50,0,1));
+console.log('7 verificações do simulador aprovadas');

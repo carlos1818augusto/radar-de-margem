@@ -11,16 +11,17 @@ class RadarTests(unittest.TestCase):
         rows, _ = radar.generate()
         with self.assertRaises(ValueError): radar.validate([])
         with self.assertRaises(ValueError): radar.validate(rows + [rows[0]])
-        for key, value in [('units', 0), ('price_cents', -1), ('unit_cost_cents', -1), ('discount_pct', 100), ('units', 1.5), ('category', 'X'), ('date', 'invalid')]:
+        for key, value in [('units', 0), ('fee_cents', -1), ('unit_cost_cents', -1), ('failure_pct', 100), ('units', 1.5), ('category', 'X'), ('date', 'invalid')]:
             bad = copy.deepcopy(rows); bad[0][key] = value
             with self.assertRaises(ValueError): radar.validate(bad)
 
     def test_accounting(self):
-        row = dict(id='x', date='2026-01-01', category='Casa', units=2, price_cents=10000, discount_pct=10, unit_cost_cents=5000)
+        row = dict(id='x', date='2026-01-01', category='Transferências', units=100, fee_cents=100, failure_pct=10, unit_cost_cents=50)
         result = radar.aggregate([row])[0]
-        self.assertEqual(result['revenue_cents'], 18000)
-        self.assertEqual(result['profit_cents'], 8000)
-        self.assertAlmostEqual(result['margin'], 8000/18000)
+        self.assertEqual(result['successful'], 90)
+        self.assertEqual(result['revenue_cents'], 9000)
+        self.assertEqual(result['profit_cents'], 4000)
+        self.assertAlmostEqual(result['margin'], 4000/9000)
 
     def test_no_future_leakage(self):
         raw, _ = radar.generate()
@@ -42,7 +43,7 @@ class RadarTests(unittest.TestCase):
         self.assertEqual((m['true_positives'],m['false_positives'],m['false_negatives']), (12,0,0))
 
     def test_normal_series(self):
-        rows = [dict(id=str(i), date=f'{i:03}', category='Casa', margin=.3, units=25) for i in range(60)]
+        rows = [dict(id=str(i), date=f'{i:03}', category='Transferências', margin=.3, units=25) for i in range(60)]
         self.assertEqual(radar.detect(rows), [])
 
 if __name__ == '__main__': unittest.main()

@@ -1,13 +1,13 @@
-id,date,category,units,discount_pct,revenue_cents,cost_cents,profit_cents,margin,reasons,baseline_margin,baseline_units
-065-Casa,2026-03-07,Casa,23,32,187680,163093,24587,0.13100490196078432,['Margem 13.1%; mediana anterior 39.1%; queda acima de 8.0 p.p.'],0.3910128546099291,25.5
-075-Tecnologia,2026-03-17,Tecnologia,25,8,575000,595000,-20000,-0.034782608695652174,['Margem -3.5%; mediana anterior 27.8%; queda acima de 8.0 p.p.'],0.27816842105263156,31.0
-085-Esporte,2026-03-27,Esporte,3,4,51840,29916,21924,0.42291666666666666,['Volume 3; mediana anterior 29; abaixo de 45% da referência'],0.4114507188109162,29.0
-095-Casa,2026-04-06,Casa,38,32,310080,267330,42750,0.13786764705882354,['Margem 13.8%; mediana anterior 38.5%; queda acima de 8.0 p.p.'],0.38455683479532166,30.0
-105-Tecnologia,2026-04-16,Tecnologia,23,3,557750,547400,10350,0.018556701030927835,['Margem 1.9%; mediana anterior 28.2%; queda acima de 8.0 p.p.'],0.28198835386338184,28.5
-115-Esporte,2026-04-26,Esporte,3,7,50220,30312,19908,0.396415770609319,['Volume 3; mediana anterior 29; abaixo de 45% da referência'],0.42250803099017387,29.0
-125-Casa,2026-05-06,Casa,21,32,171360,144522,26838,0.15661764705882353,['Margem 15.7%; mediana anterior 38.6%; queda acima de 8.3 p.p.'],0.38642139479905435,29.0
-135-Tecnologia,2026-05-16,Tecnologia,26,8,598000,618800,-20800,-0.034782608695652174,['Margem -3.5%; mediana anterior 28.5%; queda acima de 8.0 p.p.'],0.2850475877192982,27.0
-145-Esporte,2026-05-26,Esporte,3,3,52380,30465,21915,0.4183848797250859,['Volume 3; mediana anterior 28; abaixo de 45% da referência'],0.4108905920333511,28.0
-155-Casa,2026-06-05,Casa,25,32,204000,172425,31575,0.1547794117647059,['Margem 15.5%; mediana anterior 38.1%; queda acima de 8.0 p.p.'],0.3808589958939903,27.0
-165-Tecnologia,2026-06-15,Tecnologia,35,5,831250,833000,-1750,-0.002105263157894737,['Margem -0.2%; mediana anterior 27.7%; queda acima de 8.0 p.p.'],0.2774042553191489,28.5
-175-Esporte,2026-06-25,Esporte,3,6,50760,29466,21294,0.4195035460992908,['Volume 3; mediana anterior 23; abaixo de 45% da referência'],0.4136540275419732,23.0
+id,date,category,units,failure_pct,successful,revenue_cents,cost_cents,profit_cents,margin,reasons,baseline_margin,baseline_units
+065-Transferências,2026-03-07,Transferências,3344,25,2508,300960,227392,73568,0.24444444444444444,"['Falhas 25%; mediana anterior 1%; alta acima de 5 p.p.', 'Margem 24.4%; mediana anterior 40.8%; queda acima de 8.0 p.p.']",0.4083333333333333,2874.5
+075-Cobranças,2026-03-17,Cobranças,1870,2,1833,458250,572220,-113970,-0.24870703764320787,['Margem -24.9%; mediana anterior 30.9%; queda acima de 8.0 p.p.'],0.30902701538351074,2542.5
+085-Cartões,2026-03-27,Cartões,300,1,297,53460,30600,22860,0.4276094276094276,['Volume 300; mediana anterior 3322; abaixo de 45% da referência'],0.43333333333333335,3322.0
+095-Transferências,2026-04-06,Transferências,3042,25,2282,273840,219024,54816,0.2001752848378615,"['Falhas 25%; mediana anterior 2%; alta acima de 5 p.p.', 'Margem 20.0%; mediana anterior 40.5%; queda acima de 8.0 p.p.']",0.4046991064999862,3000.5
+105-Cobranças,2026-04-16,Cobranças,2848,2,2791,697750,871488,-173738,-0.24899749193837334,['Margem -24.9%; mediana anterior 30.8%; queda acima de 8.0 p.p.'],0.30811530519504127,2558.0
+115-Cartões,2026-04-26,Cartões,300,2,294,52920,29700,23220,0.4387755102040816,['Volume 300; mediana anterior 3450; abaixo de 45% da referência'],0.433216652833344,3450.0
+125-Transferências,2026-05-06,Transferências,2854,25,2141,256920,196926,59994,0.23351237739374126,"['Falhas 25%; mediana anterior 2%; alta acima de 5 p.p.', 'Margem 23.4%; mediana anterior 40.8%; queda acima de 8.0 p.p.']",0.4083333333333333,3125.5
+135-Cobranças,2026-05-16,Cobranças,3397,2,3329,832250,1039482,-207232,-0.2490021027335536,['Margem -24.9%; mediana anterior 31.0%; queda acima de 8.0 p.p.'],0.31021379411579136,2787.5
+145-Cartões,2026-05-26,Cartões,300,0,300,54000,29700,24300,0.45,['Volume 300; mediana anterior 3616; abaixo de 45% da referência'],0.4387789460741306,3616.0
+155-Transferências,2026-06-05,Transferências,3785,25,2839,340680,264950,75730,0.22229071269226253,"['Falhas 25%; mediana anterior 2%; alta acima de 5 p.p.', 'Margem 22.2%; mediana anterior 41.3%; queda acima de 8.0 p.p.']",0.4132443135673067,3162.0
+165-Cobranças,2026-06-15,Cobranças,2527,1,2502,625500,773262,-147762,-0.23623021582733814,['Margem -23.6%; mediana anterior 31.1%; queda acima de 8.0 p.p.'],0.31114864864864866,2819.0
+175-Cartões,2026-06-25,Cartões,300,0,300,54000,30600,23400,0.43333333333333335,['Volume 300; mediana anterior 3587; abaixo de 45% da referência'],0.43310559516256353,3587.0

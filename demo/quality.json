@@ -1,0 +1,17 @@
+{
+  "status": "aprovado",
+  "rows": 540,
+  "unique_keys": 540,
+  "categories": 3,
+  "days": 180,
+  "missing_cells": 0,
+  "checks": [
+    "Base não vazia",
+    "Chave única",
+    "Categoria/data única",
+    "Tipos inteiros",
+    "Domínio monetário e falhas",
+    "Datas ISO válidas"
+  ],
+  "data_sha256": "4c03fe8538878a96d8a3f32fd18add8e44ed2b392638db542e158efadee22b97"
+}

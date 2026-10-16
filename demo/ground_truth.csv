@@ -1,13 +1,13 @@
 id,scenario
-065-Casa,desconto excessivo
-075-Tecnologia,aumento de custo
-085-Esporte,queda de volume
-095-Casa,desconto excessivo
-105-Tecnologia,aumento de custo
-115-Esporte,queda de volume
-125-Casa,desconto excessivo
-135-Tecnologia,aumento de custo
-145-Esporte,queda de volume
-155-Casa,desconto excessivo
-165-Tecnologia,aumento de custo
-175-Esporte,queda de volume
+065-Transferências,pico de falhas
+075-Cobranças,aumento de custo
+085-Cartões,queda de volume
+095-Transferências,pico de falhas
+105-Cobranças,aumento de custo
+115-Cartões,queda de volume
+125-Transferências,pico de falhas
+135-Cobranças,aumento de custo
+145-Cartões,queda de volume
+155-Transferências,pico de falhas
+165-Cobranças,aumento de custo
+175-Cartões,queda de volume
